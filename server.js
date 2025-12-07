@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import app from "./app.js";
-import config from "./config/index.js";
+import app from "./src/app/app.js";
+import config from "./src/app/config/index.js";
 
 mongoose.connect(config.db_url, { })
   .then(() => {

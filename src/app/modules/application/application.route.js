@@ -4,15 +4,7 @@ import { auth } from "../../middlewares/auth.js";
 import { applyJob } from "./application.controller.js";
 const router = express.Router();
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    const time = Date.now();
-    cb(null, time + "-" + file.originalname);
-  },
-});
+const storage = multer.memoryStorage();
 const upload = multer({
   storage,
   limits: { fileSize: 5 * 1024 * 1024 },
